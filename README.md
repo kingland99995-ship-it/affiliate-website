@@ -1,42 +1,10 @@
-# DealDrop — Affiliate Website
+# ShahilShop
 
-A clean, responsive affiliate storefront built with plain HTML, CSS and JavaScript.
+Updated storefront with ShahilShop branding.
 
-## Files
+- Trendy Everyday Outfit
+- Festive Special Collection
+- View Deal buttons open Coming Soon
+- Coming Soon page includes Homepage button
 
-- `index.html` — website structure
-- `style.css` — responsive design
-- `script.js` — products, search and category filtering
-
-## Add your affiliate products
-
-Open `script.js` and edit the `products` array.
-
-For every product, replace:
-
-`YOUR_AFFILIATE_LINK_HERE`
-
-with your actual affiliate URL.
-
-You can also change:
-
-- product name
-- category
-- price
-- emoji
-- image URL
-- affiliate link
-
-## GitHub Pages
-
-1. Upload all files to the repository.
-2. Open **Settings → Pages**.
-3. Select **Deploy from a branch**.
-4. Choose `main` and `/ (root)`.
-5. Save.
-
-Your site will then be available through your GitHub Pages URL.
-
-## Affiliate disclosure
-
-The About section already contains a basic affiliate disclosure. Check your affiliate program's required wording and update it if necessary.
+Upload all files to the `main` branch of the GitHub Pages repository.
