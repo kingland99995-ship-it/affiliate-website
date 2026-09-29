@@ -1,10 +1,1 @@
-# ShahilShop
-
-Updated storefront with ShahilShop branding.
-
-- Trendy Everyday Outfit
-- Festive Special Collection
-- View Deal buttons open Coming Soon
-- Coming Soon page includes Homepage button
-
-Upload all files to the `main` branch of the GitHub Pages repository.
+ShahilShop updated: Minimal Beauty Essentials renamed to Minimal Makeup Essentials; Daily Style Essential and Festive Special Collection removed; six uploaded images added; dark mobile animated design retained; prices removed; View Deal opens Coming Soon.
