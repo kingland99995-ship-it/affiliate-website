@@ -2,35 +2,13 @@ const products = [
   {
     name: "Trendy Everyday Outfit",
     category: "Fashion",
-    image: "images/trendy-everyday-outfit.png",
-    status: "soon"
-  },
-  {
-    name: "Minimal Makeup Essentials",
-    category: "Beauty",
-    image: "images/minimal-makeup-essentials.png",
-    status: "live",
-    link: "https://link.amazon/B0fj06OnN",
-    video: "media/product-2.mp4",
-    description: "A beauty-focused pick presented in the supplied product creative. Explore the full product details, availability and current information through the product link.",
-    highlights: ["Beauty & skincare focused", "Product-focused visual showcase", "View the current listing through the provided link"]
-  },
-  {
-    name: "Cute Home Organizer",
-    category: "Home",
-    image: "images/cute-home-organizer.png",
-    status: "soon"
-  },
-  {
-    name: "Everyday Fashion Accessory",
-    category: "Accessories",
-    image: "images/everyday-fashion-accessory.png",
+    image: "images/trendy-everyday-outfit.webp",
     status: "soon"
   },
   {
     name: "Glow Care Pick",
     category: "Beauty",
-    image: "images/glow-care-pick.png",
+    image: "images/glow-care-pick.webp",
     status: "live",
     link: "https://link.amazon/B0brKHgMz",
     video: "media/product-1.mp4",
@@ -38,13 +16,30 @@ const products = [
     highlights: ["CeraVe Moisturising Cream", "For dry to very dry skin", "Packaging highlights ceramides & hyaluronic acid"]
   },
   {
-    name: "Smart Storage Find",
+    name: "Cute Home Organizer",
     category: "Home",
-    image: "images/smart-storage-find.png",
+    image: "images/cute-home-organizer.webp",
     status: "soon"
   },
-
-];
+  {
+    name: "Everyday Fashion Accessory",
+    category: "Accessories",
+    image: "images/everyday-fashion-accessory.webp",
+    status: "soon"
+  },
+  {
+    name: "Minimal Makeup Essentials",
+    category: "Beauty",
+    image: "images/minimal-makeup-essentials.webp",
+    status: "soon"
+  },
+  {
+    name: "Smart Storage Find",
+    category: "Home",
+    image: "images/smart-storage-find.webp",
+    status: "soon"
+  }
+];;
 
 let cat = 'All';
 const grid = document.querySelector('#products');
