@@ -1,1 +1,133 @@
-const products=[["Trendy Everyday Outfit","Fashion","images/trendy-everyday-outfit.png"],["Minimal Makeup Essentials","Beauty","images/minimal-makeup-essentials.png"],["Cute Home Organizer","Home","images/cute-home-organizer.png"],["Everyday Fashion Accessory","Accessories","images/everyday-fashion-accessory.png"],["Glow Care Pick","Beauty","images/glow-care-pick.png"],["Smart Storage Find","Home","images/smart-storage-find.png"]];let cat='All';const grid=document.querySelector('#products'),search=document.querySelector('#search');function render(){let q=search.value.toLowerCase().trim();let a=products.filter(p=>(cat==='All'||p[1]===cat)&&p[0].toLowerCase().includes(q));grid.innerHTML=a.map(p=>`<article class="card reveal"><div class="pic"><img src="${p[2]}" alt="${p[0]}" loading="lazy"><span>TRENDING</span></div><div class="info"><span class="tag">${p[1]}</span><h3>${p[0]}</h3><a class="deal" href="coming-soon.html">View Deal →</a></div></article>`).join('');document.querySelector('#empty').style.display=a.length?'none':'block';observe()}document.querySelectorAll('.chips button').forEach(b=>b.onclick=()=>{document.querySelector('.chips .active').classList.remove('active');b.classList.add('active');cat=b.dataset.cat;render()});search.oninput=render;const ob=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');ob.unobserve(e.target)}}),{threshold:.08});function observe(){document.querySelectorAll('.reveal:not(.show)').forEach(e=>ob.observe(e))}render();observe();
+const products = [
+  {
+    name: "Trendy Everyday Outfit",
+    category: "Fashion",
+    image: "images/trendy-everyday-outfit.png",
+    status: "soon"
+  },
+  {
+    name: "Minimal Makeup Essentials",
+    category: "Beauty",
+    image: "images/minimal-makeup-essentials.png",
+    status: "live",
+    link: "https://link.amazon/B0fj06OnN",
+    video: "media/product-2.mp4",
+    description: "A beauty-focused pick presented in the supplied product creative. Explore the full product details, availability and current information through the product link.",
+    highlights: ["Beauty & skincare focused", "Product-focused visual showcase", "View the current listing through the provided link"]
+  },
+  {
+    name: "Cute Home Organizer",
+    category: "Home",
+    image: "images/cute-home-organizer.png",
+    status: "soon"
+  },
+  {
+    name: "Everyday Fashion Accessory",
+    category: "Accessories",
+    image: "images/everyday-fashion-accessory.png",
+    status: "soon"
+  },
+  {
+    name: "Glow Care Pick",
+    category: "Beauty",
+    image: "images/glow-care-pick.png",
+    status: "live",
+    link: "https://link.amazon/B0brKHgMz",
+    video: "media/product-1.mp4",
+    description: "A skincare pick featuring CeraVe Moisturising Cream in the supplied creative. The product packaging highlights use for dry to very dry skin and lists essential ceramides and hyaluronic acid.",
+    highlights: ["CeraVe Moisturising Cream", "For dry to very dry skin", "Packaging highlights ceramides & hyaluronic acid"]
+  },
+  {
+    name: "Smart Storage Find",
+    category: "Home",
+    image: "images/smart-storage-find.png",
+    status: "soon"
+  },
+  {
+    name: "Hydration Pick",
+    category: "Beauty",
+    image: "images/glow-care-pick.png",
+    status: "live",
+    link: "https://link.amazon/B044tgwrH",
+    video: "media/product-3.mp4",
+    description: "A Neutrogena Hydro Boost skincare pick shown in the supplied creative. The ad highlights a lightweight water-gel format, oil-free feel and long-lasting hydration messaging.",
+    highlights: ["Neutrogena Hydro Boost", "Light water-gel format", "Oil-free, non-sticky feel highlighted in the supplied creative"]
+  },
+  {
+    name: "Daily Moisture Essential",
+    category: "Beauty",
+    image: "images/glow-care-pick.png",
+    status: "live",
+    link: "https://link.amazon/B05RgqvTg",
+    video: "media/product-4.mp4",
+    description: "A Simple skincare pick shown as a light moisturiser in the supplied creative. The presentation focuses on everyday hydration and a lightweight moisturising format.",
+    highlights: ["Simple light moisturiser", "Everyday skincare pick", "Light moisturising format"]
+  },
+  {
+    name: "Comfort Moisture Pick",
+    category: "Beauty",
+    image: "images/glow-care-pick.png",
+    status: "live",
+    link: "https://link.amazon/B07J6g27B",
+    video: "media/product-5.mp4",
+    description: "A skincare moisturising pick presented in the supplied ad creative. The creative focuses on dry, tight-feeling skin and a moisturised, comfortable finish.",
+    highlights: ["Moisturising skincare focus", "Designed around dry-feeling skin in the supplied creative", "Explore the full listing through the provided link"]
+  }
+];
+
+let cat = 'All';
+const grid = document.querySelector('#products');
+const search = document.querySelector('#search');
+
+function productUrl(product) {
+  return product.status === 'live' ? `product.html?id=${encodeURIComponent(product.name)}` : 'coming-soon.html';
+}
+
+function render() {
+  const q = search.value.toLowerCase().trim();
+  const visible = products.filter(p =>
+    (cat === 'All' || p.category === cat) && p.name.toLowerCase().includes(q)
+  );
+
+  grid.innerHTML = visible.map(p => `
+    <article class="card reveal">
+      <div class="pic">
+        <img src="${p.image}" alt="${p.name}" loading="lazy">
+        <span>${p.status === 'live' ? 'AVAILABLE' : 'COMING SOON'}</span>
+      </div>
+      <div class="info">
+        <span class="tag">${p.category}</span>
+        <h3>${p.name}</h3>
+        <a class="deal" href="${productUrl(p)}">${p.status === 'live' ? 'View Product ↗' : 'Coming Soon →'}</a>
+      </div>
+    </article>
+  `).join('');
+
+  document.querySelector('#empty').style.display = visible.length ? 'none' : 'block';
+  observe();
+}
+
+document.querySelectorAll('.chips button').forEach(button => {
+  button.onclick = () => {
+    document.querySelector('.chips .active').classList.remove('active');
+    button.classList.add('active');
+    cat = button.dataset.cat;
+    render();
+  };
+});
+
+search.oninput = render;
+
+const ob = new IntersectionObserver(entries => entries.forEach(entry => {
+  if (entry.isIntersecting) {
+    entry.target.classList.add('show');
+    ob.unobserve(entry.target);
+  }
+}), { threshold: .08 });
+
+function observe() {
+  document.querySelectorAll('.reveal:not(.show)').forEach(element => ob.observe(element));
+}
+
+render();
+observe();

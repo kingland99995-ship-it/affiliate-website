@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="ShahilShop product showcase">
+  <title>Product — ShahilShop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="product-page">
+  <header>
+    <a class="logo" href="index.html"><b>Shahil</b>Shop</a>
+    <nav><a href="index.html#deals">Deals</a><a href="index.html#categories">Categories</a><a href="index.html#about">About</a></nav>
+    <a class="explore" href="index.html#deals">All Finds →</a>
+  </header>
+
+  <main id="product-root" class="product-shell">
+    <div class="product-loading">Loading product…</div>
+  </main>
+
+  <footer>
+    <a class="logo" href="index.html"><b>Shahil</b>Shop</a>
+    <span>Discover something better. • © 2026</span>
+  </footer>
+
+<script>
+const products = [
+  {
+    name: "Minimal Makeup Essentials", category: "Beauty", image: "images/minimal-makeup-essentials.webp",
+    link: "https://link.amazon/B0fj06OnN", video: "media/product-2.mp4", mediaId: 2,
+    description: "A beauty-focused pick presented in the supplied product creative. Explore the full product details, availability and current information through the product link.",
+    highlights: ["Beauty & skincare focused", "Product-focused visual showcase", "View the current listing through the provided link"]
+  },
+  {
+    name: "Glow Care Pick", category: "Beauty", image: "images/glow-care-pick.webp",
+    link: "https://link.amazon/B0brKHgMz", video: "media/product-1.mp4", mediaId: 1,
+    description: "A skincare pick featuring CeraVe Moisturising Cream in the supplied creative. The product packaging highlights use for dry to very dry skin and lists essential ceramides and hyaluronic acid.",
+    highlights: ["CeraVe Moisturising Cream", "For dry to very dry skin", "Packaging highlights ceramides & hyaluronic acid"]
+  },
+  {
+    name: "Hydration Pick", category: "Beauty", image: "images/glow-care-pick.webp",
+    link: "https://link.amazon/B044tgwrH", video: "media/product-3.mp4", mediaId: 3,
+    description: "A Neutrogena Hydro Boost skincare pick shown in the supplied creative. The ad highlights a lightweight water-gel format, oil-free feel and long-lasting hydration messaging.",
+    highlights: ["Neutrogena Hydro Boost", "Light water-gel format", "Oil-free, non-sticky feel highlighted in the supplied creative"]
+  },
+  {
+    name: "Daily Moisture Essential", category: "Beauty", image: "images/glow-care-pick.webp",
+    link: "https://link.amazon/B05RgqvTg", video: "media/product-4.mp4", mediaId: 4,
+    description: "A Simple skincare pick shown as a light moisturiser in the supplied creative. The presentation focuses on everyday hydration and a lightweight moisturising format.",
+    highlights: ["Simple light moisturiser", "Everyday skincare pick", "Light moisturising format"]
+  },
+  {
+    name: "Comfort Moisture Pick", category: "Beauty", image: "images/glow-care-pick.webp",
+    link: "https://link.amazon/B07J6g27B", video: "media/product-5.mp4", mediaId: 5,
+    description: "A skincare moisturising pick presented in the supplied ad creative. The creative focuses on dry, tight-feeling skin and a moisturised, comfortable finish.",
+    highlights: ["Moisturising skincare focus", "Dry, tight-feeling skin is highlighted in the supplied creative", "Explore the full listing through the provided link"]
+  }
+];
+
+const id = new URLSearchParams(location.search).get('id');
+const product = products.find(p => p.name === id);
+const root = document.querySelector('#product-root');
+
+if (!product) {
+  root.innerHTML = `
+    <section class="not-found reveal show">
+      <span class="eyebrow">SHAHILSHOP</span>
+      <h1>Product not found</h1>
+      <p>That product page is unavailable. Browse the current ShahilShop finds instead.</p>
+      <a class="btn" href="index.html#deals">← Back to ShahilShop</a>
+    </section>`;
+} else {
+  const posterTimes = [2, 6, 9];
+  root.innerHTML = `
+    <section class="product-hero reveal show">
+      <div class="product-copy">
+        <a class="back-link" href="index.html#deals">← Back to ShahilShop</a>
+        <span class="eyebrow">SHAHILSHOP • ${product.category.toUpperCase()}</span>
+        <h1>${product.name}</h1>
+        <p class="product-description">${product.description}</p>
+        <ul class="highlights">${product.highlights.map(item => `<li>${item}</li>`).join('')}</ul>
+        <a class="buy-btn" href="${product.link}" target="_blank" rel="noopener noreferrer">Buy / View Product ↗</a>
+        <p class="affiliate-note">You’ll continue to the provided product listing in a new tab.</p>
+      </div>
+      <div class="product-feature">
+        <div class="feature-frame"><img src="${product.image}" alt="${product.name}" fetchpriority="high"></div>
+      </div>
+    </section>
+
+    <section class="media-section reveal show">
+      <div class="section-heading"><span class="eyebrow">PRODUCT VISUALS</span><h2>Explore the product</h2></div>
+      <div class="media-grid">
+        <div class="video-card featured-video">
+          <video controls playsinline preload="metadata" poster="media/posters/${'product-' + product.mediaId + '-2.jpg'}">
+            <source src="${product.video}" type="video/mp4">
+          </video>
+          <span>Product video</span>
+        </div>
+        <div class="image-gallery">
+          ${posterTimes.map(t => `<a href="media/posters/product-${product.mediaId}-${t}.jpg" target="_blank" rel="noopener"><img src="media/posters/product-${product.mediaId}-${t}.jpg" alt="${product.name} product visual" loading="lazy"></a>`).join('')}
+        </div>
+      </div>
+    </section>
+
+    <section class="product-bottom reveal show">
+      <div><span class="eyebrow">READY TO EXPLORE?</span><h2>View the current product listing.</h2></div>
+      <a class="buy-btn" href="${product.link}" target="_blank" rel="noopener noreferrer">Buy / View Product ↗</a>
+    </section>`;
+}
+</script>
+</body>
+</html>
