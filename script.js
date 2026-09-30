@@ -43,36 +43,7 @@ const products = [
     image: "images/smart-storage-find.png",
     status: "soon"
   },
-  {
-    name: "Hydration Pick",
-    category: "Beauty",
-    image: "images/glow-care-pick.png",
-    status: "live",
-    link: "https://link.amazon/B044tgwrH",
-    video: "media/product-3.mp4",
-    description: "A Neutrogena Hydro Boost skincare pick shown in the supplied creative. The ad highlights a lightweight water-gel format, oil-free feel and long-lasting hydration messaging.",
-    highlights: ["Neutrogena Hydro Boost", "Light water-gel format", "Oil-free, non-sticky feel highlighted in the supplied creative"]
-  },
-  {
-    name: "Daily Moisture Essential",
-    category: "Beauty",
-    image: "images/glow-care-pick.png",
-    status: "live",
-    link: "https://link.amazon/B05RgqvTg",
-    video: "media/product-4.mp4",
-    description: "A Simple skincare pick shown as a light moisturiser in the supplied creative. The presentation focuses on everyday hydration and a lightweight moisturising format.",
-    highlights: ["Simple light moisturiser", "Everyday skincare pick", "Light moisturising format"]
-  },
-  {
-    name: "Comfort Moisture Pick",
-    category: "Beauty",
-    image: "images/glow-care-pick.png",
-    status: "live",
-    link: "https://link.amazon/B07J6g27B",
-    video: "media/product-5.mp4",
-    description: "A skincare moisturising pick presented in the supplied ad creative. The creative focuses on dry, tight-feeling skin and a moisturised, comfortable finish.",
-    highlights: ["Moisturising skincare focus", "Designed around dry-feeling skin in the supplied creative", "Explore the full listing through the provided link"]
-  }
+
 ];
 
 let cat = 'All';
