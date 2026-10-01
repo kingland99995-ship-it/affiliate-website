@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Glow Care — ShahilShop</title><link rel="stylesheet" href="style.css"></head>
+<body class="product-page">
+<header><a class="logo" href="index.html"><b>Shahil</b>Shop</a><nav><a href="index.html#deals">Deals</a><a href="index.html#categories">Categories</a><a href="index.html#about">About</a></nav><a class="explore" href="index.html#deals">Home →</a></header>
+<main class="product-shell glow-list-shell">
+  <section class="list-intro"><a class="back-link" href="index.html#deals">← Back to ShahilShop</a><span class="eyebrow">SHAHILSHOP • BEAUTY</span><h1>Glow Care</h1><p>Explore the skincare picks one by one. Open any product to see its visuals, your ad, and the buy link.</p></section>
+  <section class="product-list" id="glow-products"></section>
+</main>
+<footer><a class="logo" href="index.html"><b>Shahil</b>Shop</a><span>Discover something better. • © 2026</span><a class="explore" href="https://pin.it/7srq96kHT" target="_blank" rel="noopener noreferrer">Pinterest ↗</a></footer>
+<script>
+const products=[
+{name:'Glow Care Pick',img:'media/posters/product-1-2.jpg',id:'Glow Care Pick'},
+{name:'Minimal Makeup Essentials',img:'media/posters/product-2-2.jpg',id:'Minimal Makeup Essentials'},
+{name:'Hydration Pick',img:'media/posters/product-3-2.jpg',id:'Hydration Pick'},
+{name:'Daily Moisture Essential',img:'media/posters/product-4-2.jpg',id:'Daily Moisture Essential'},
+{name:'Comfort Moisture Pick',img:'media/posters/product-5-2.jpg',id:'Comfort Moisture Pick'},
+{name:'Cetaphil Moisturising Lotion',img:'media/posters/product-6-2.jpg',id:'Cetaphil Moisturising Lotion'},
+{name:'Daily Skin Moisturiser',img:'media/posters/product-7-2.jpg',id:'Daily Skin Moisturiser'}
+];
+document.querySelector('#glow-products').innerHTML=products.map((p,i)=>`<article class="product-row reveal show"><div class="row-image"><img src="${p.img}" alt="${p.name}" loading="lazy"></div><div class="row-copy"><span class="eyebrow">BEAUTY PICK ${String(i+1).padStart(2,'0')}</span><h2>${p.name}</h2><p>Open the product page to see more product visuals, the supplied ad and the shopping link.</p><a class="deal" href="product.html?id=${encodeURIComponent(p.id)}">View ↗</a></div></article>`).join('');
+</script></body></html>

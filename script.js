@@ -11,6 +11,7 @@ const products = [
     image: "images/glow-care-pick.webp",
     status: "live",
     link: "https://link.amazon/B0brKHgMz",
+    listPage: true,
     video: "media/product-1.mp4",
     description: "A skincare pick featuring CeraVe Moisturising Cream in the supplied creative. The product packaging highlights use for dry to very dry skin and lists essential ceramides and hyaluronic acid.",
     highlights: ["CeraVe Moisturising Cream", "For dry to very dry skin", "Packaging highlights ceramides & hyaluronic acid"]
@@ -46,7 +47,7 @@ const grid = document.querySelector('#products');
 const search = document.querySelector('#search');
 
 function productUrl(product) {
-  return product.status === 'live' ? `product.html?id=${encodeURIComponent(product.name)}` : 'coming-soon.html';
+  return product.status === 'live' ? 'glow-care.html' : 'coming-soon.html';
 }
 
 function render() {
